@@ -1,4 +1,4 @@
-﻿// MonoGame - Copyright (C) The MonoGame Team
+﻿// MonoGame - Copyright (C) MonoGame Foundation, Inc
 // This file is subject to the terms and conditions defined in
 // file 'LICENSE.txt', which is part of this source code package.
 
@@ -76,8 +76,8 @@ namespace MonoGame.OpenGL
 
         internal int[] GetAttributes()
         {
-            int minor = Minor > -1 ? EglContextMinorVersion : EGL10.EglNone;
-            return new int[] { EglContextClientVersion, Major, minor, Minor, EGL10.EglNone };
+            int minor = Minor > -1 ? EglContextMinorVersion : IEGL10.EglNone;
+            return new int[] { EglContextClientVersion, Major, minor, Minor, IEGL10.EglNone };
         }
 
         public override string ToString()
@@ -95,7 +95,7 @@ namespace MonoGame.OpenGL
             }
             if (GL.libES2 != IntPtr.Zero)
             {
-                // We pass -1 becuase when requesting a GLES 2.0 context we
+                // We pass -1 because when requesting a GLES 2.0 context we
                 // dont provide the Minor version.
                 yield return new GLESVersion { Major = 2, Minor = -1 };
             }
